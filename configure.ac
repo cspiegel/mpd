@@ -374,6 +374,11 @@ AC_ARG_ENABLE(openal,
 		[enable OpenAL support (default: auto)]),,
 	enable_openal=auto)
 
+AC_ARG_ENABLE(openmpt,
+	AS_HELP_STRING([--enable-openmpt],
+		[enable the openmpt decoder (default: disables)]),,
+	enable_openmpt=no)
+
 AC_ARG_ENABLE(oss,
 	AS_HELP_STRING([--disable-oss],
 		[disable OSS support (default: enable)]),,
@@ -971,6 +976,10 @@ fi
 
 AM_CONDITIONAL(ENABLE_VORBIS_DECODER, test x$enable_vorbis = xyes || test x$enable_tremor = xyes)
 
+dnl --------------------------------- openmpt ---------------------------------
+MPD_ENABLE_AUTO_PKG(openmpt, OPENMPT, [libopenmpt],
+	[OpenMPT decoder plugin], [libopenmpt not found])
+
 dnl --------------------------------- sidplay ---------------------------------
 if test x$enable_sidplay != xno; then
 	# we're not using pkg-config here
@@ -1394,6 +1403,7 @@ results(mad, [MAD])
 results(mpg123, [MPG123])
 results(mpc, [Musepack])
 printf '\n\t'
+results(openmpt, [OpenMPT])
 results(opus, [Opus])
 results(tremor, [OggTremor])
 results(vorbis, [OggVorbis])

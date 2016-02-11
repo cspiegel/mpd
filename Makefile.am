@@ -965,6 +965,16 @@ libdecoder_a_SOURCES += \
 	src/decoder/plugins/MpcdecDecoderPlugin.hxx
 endif
 
+if ENABLE_OPENMPT
+libopenmpt_decoder_plugin_a_SOURCES = \
+	src/decoder/plugins/OpenMPTDecoderPlugin.cxx \
+	src/decoder/plugins/OpenMPTDecoderPlugin.hxx
+libopenmpt_decoder_plugin_a_CXXFLAGS = $(AM_CXXFLAGS) $(OPENMPT_CFLAGS)
+libopenmpt_decoder_plugin_a_CPPFLAGS = $(AM_CPPFLAGS)
+noinst_LIBRARIES += libopenmpt_decoder_plugin.a
+DECODER_LIBS += libopenmpt_decoder_plugin.a $(OPENMPT_LIBS)
+endif
+
 if ENABLE_OPUS
 libdecoder_a_SOURCES += \
 	src/decoder/plugins/OggUtil.cxx \

@@ -1986,6 +1986,39 @@ buffer_size: 16384</programlisting>
           </tgroup>
         </informaltable>
       </section>
+
+      <section>
+        <title><varname>openmpt</varname></title>
+
+        <para>
+          Module player based on <ulink
+          url="http://http://lib.openmpt.org/libopenmpt//"><application>libopenmpt</application></ulink>.
+        </para>
+
+        <informaltable>
+          <tgroup cols="2">
+            <thead>
+              <row>
+                <entry>Setting</entry>
+                <entry>Description</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>
+                  <varname>stereo_separation</varname>
+                </entry>
+                <entry>
+                  Set the overall stereo separation of the module as a
+                  percentage, with 0 being no separation, and 200 being
+                  complete separation. The default value is
+                  <parameter>100</parameter>.
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable>
+      </section>
     </section>
 
     <section id="encoder_plugins">
