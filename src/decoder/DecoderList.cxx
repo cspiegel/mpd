@@ -40,6 +40,7 @@
 #include "plugins/WildmidiDecoderPlugin.hxx"
 #include "plugins/MikmodDecoderPlugin.hxx"
 #include "plugins/ModplugDecoderPlugin.hxx"
+#include "plugins/XmpDecoderPlugin.hxx"
 #include "plugins/MpcdecDecoderPlugin.hxx"
 #include "plugins/FluidsynthDecoderPlugin.hxx"
 #include "plugins/SidplayDecoderPlugin.hxx"
@@ -88,6 +89,9 @@ const struct DecoderPlugin *const decoder_plugins[] = {
 #endif
 #ifdef ENABLE_MIKMOD_DECODER
 	&mikmod_decoder_plugin,
+#endif
+#ifdef ENABLE_XMP
+	&xmp_decoder_plugin,
 #endif
 #ifdef ENABLE_SIDPLAY
 	&sidplay_decoder_plugin,

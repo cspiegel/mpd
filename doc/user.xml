@@ -1986,6 +1986,53 @@ buffer_size: 16384</programlisting>
           </tgroup>
         </informaltable>
       </section>
+
+      <section>
+        <title><varname>xmp</varname></title>
+
+        <para>
+          Module player based on <ulink
+          url="http://xmp.sourceforge.net/"><application>libxmp</application></ulink>.
+        </para>
+
+        <informaltable>
+          <tgroup cols="2">
+            <thead>
+              <row>
+                <entry>Setting</entry>
+                <entry>Description</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>
+                  <varname>panning_amplitude</varname>
+                </entry>
+                <entry>
+                  For modules which do not provide their own panning
+                  information (i.e. those which are completely L/R
+                  separated), force the specified panning separation as a
+                  percentage, with 0 being no separation, and 100 being
+                  complete separation. The default value is
+                  <parameter>50</parameter>.
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <varname>stereo_separation</varname>
+                </entry>
+                <entry>
+                  Set the overall stereo separation of the module as a
+                  percentage, with 0 being no separation, and 100 being
+                  complete separation. This applies regardless of whether
+                  the module contains panning amplitude information or
+                  not. The default value is <parameter>70</parameter>.
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable>
+      </section>
     </section>
 
     <section id="encoder_plugins">

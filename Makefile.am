@@ -1084,6 +1084,16 @@ libdecoder_a_SOURCES += \
 	src/decoder/plugins/GmeDecoderPlugin.cxx src/decoder/plugins/GmeDecoderPlugin.hxx
 endif
 
+if ENABLE_XMP
+libxmp_decoder_plugin_a_SOURCES = \
+	src/decoder/plugins/XmpDecoderPlugin.cxx \
+	src/decoder/plugins/XmpDecoderPlugin.hxx
+libxmp_decoder_plugin_a_CXXFLAGS = $(AM_CXXFLAGS) $(XMP_CFLAGS)
+libxmp_decoder_plugin_a_CPPFLAGS = $(AM_CPPFLAGS)
+noinst_LIBRARIES += libxmp_decoder_plugin.a
+DECODER_LIBS += libxmp_decoder_plugin.a $(XMP_LIBS)
+endif
+
 # encoder plugins
 
 if ENABLE_ENCODER

@@ -439,6 +439,11 @@ AC_ARG_ENABLE(werror,
 		[treat warnings as errors (default: disabled)]),,
 	enable_werror=no)
 
+AC_ARG_ENABLE(xmp,
+	AS_HELP_STRING([--enable-xmp],
+		[enable the xmp decoder (default: disables)]),,
+	enable_xmp=no)
+
 AC_ARG_WITH(zeroconf,
 	AS_HELP_STRING([--with-zeroconf=@<:@auto|avahi|bonjour|no@:>@],
 		[enable zeroconf backend (default=auto)]),,
@@ -971,6 +976,10 @@ fi
 
 AM_CONDITIONAL(ENABLE_VORBIS_DECODER, test x$enable_vorbis = xyes || test x$enable_tremor = xyes)
 
+dnl --------------------------------- libxmp ----------------------------------
+MPD_ENABLE_AUTO_PKG(xmp, XMP, [libxmp],
+	[xmp decoder plugin], [libxmp not found])
+
 dnl --------------------------------- sidplay ---------------------------------
 if test x$enable_sidplay != xno; then
 	# we're not using pkg-config here
@@ -1400,6 +1409,7 @@ results(vorbis, [OggVorbis])
 results(audiofile, [WAVE])
 results(wavpack, [WavPack])
 results(wildmidi, [WildMidi])
+results(xmp, [XMP])
 
 printf '\nOther features:\n\t'
 results(lsr, [libsamplerate])
