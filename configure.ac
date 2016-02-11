@@ -374,6 +374,11 @@ AC_ARG_ENABLE(openal,
 		[enable OpenAL support (default: auto)]),,
 	enable_openal=auto)
 
+AC_ARG_ENABLE(optimfrog,
+	AS_HELP_STRING([--enable-optimfrog],
+		[enable the optimfrog decoder (default: disable)]),,
+	enable_optimfrog=no)
+
 AC_ARG_ENABLE(oss,
 	AS_HELP_STRING([--disable-oss],
 		[disable OSS support (default: enable)]),,
@@ -971,6 +976,10 @@ fi
 
 AM_CONDITIONAL(ENABLE_VORBIS_DECODER, test x$enable_vorbis = xyes || test x$enable_tremor = xyes)
 
+dnl -------------------------------- optimfrog --------------------------------
+MPD_ENABLE_AUTO_PKG(optimfrog, OPTIMFROG, [optimfrog],
+	[optimfrog decoder plugin], [optimfrog not found])
+
 dnl --------------------------------- sidplay ---------------------------------
 if test x$enable_sidplay != xno; then
 	# we're not using pkg-config here
@@ -1390,6 +1399,7 @@ printf '\n\t'
 results(sndfile, [libsndfile])
 results(mikmod, [MikMod])
 results(modplug, [MODPLUG])
+results(optimfrog, [OPTIMFROG])
 results(mad, [MAD])
 results(mpg123, [MPG123])
 results(mpc, [Musepack])

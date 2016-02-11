@@ -1045,6 +1045,16 @@ noinst_LIBRARIES += libmodplug_decoder_plugin.a
 DECODER_LIBS += libmodplug_decoder_plugin.a $(MODPLUG_LIBS)
 endif
 
+if ENABLE_OPTIMFROG
+liboptimfrog_decoder_plugin_a_SOURCES = \
+	src/decoder/plugins/OptimfrogDecoderPlugin.cxx \
+	src/decoder/plugins/OptimfrogDecoderPlugin.hxx
+liboptimfrog_decoder_plugin_a_CXXFLAGS = $(AM_CXXFLAGS) $(OPTIMFROG_CFLAGS)
+liboptimfrog_decoder_plugin_a_CPPFLAGS = $(AM_CPPFLAGS)
+noinst_LIBRARIES += liboptimfrog_decoder_plugin.a
+DECODER_LIBS += liboptimfrog_decoder_plugin.a $(OPTIMFROG_LIBS)
+endif
+
 if ENABLE_SIDPLAY
 libdecoder_a_SOURCES += \
 	src/decoder/plugins/SidplayDecoderPlugin.cxx \
